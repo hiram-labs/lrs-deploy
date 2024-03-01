@@ -1,0 +1,69 @@
+{
+  "apps": [
+    {
+      "name": "API",
+      "script": "/app/lrs-core/api/dist/server",
+      "cwd": ".",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "wait_ready": true,
+      "listen_timeout": 30000,
+      "node_args": "--max-old-space-size=512 --max-semi-space-size=16",
+      "autorestart": true,
+      "restart_delay": 1000,
+      "max_memory_restart": "500M"
+    },
+    {
+      "name": "UIServer",
+      "script": "/app/lrs-core/ui/dist/server",
+      "cwd": ".",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "wait_ready": true,
+      "listen_timeout": 30000,
+      "node_args": "--max-old-space-size=512 --max-semi-space-size=16",
+      "autorestart": true,
+      "restart_delay": 1000,
+      "max_memory_restart": "500M"
+    },
+    {
+      "name": "Worker",
+      "script": "/app/lrs-core/worker/dist/server",
+      "cwd": ".",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "wait_ready": true,
+      "listen_timeout": 30000,
+      "node_args": "--max-old-space-size=512 --max-semi-space-size=16",
+      "autorestart": true,
+      "restart_delay": 1000,
+      "max_memory_restart": "500M"
+    },
+    {
+      "name": "Scheduler",
+      "script": "/app/lrs-core/cli/dist/scheduler",
+      "cwd": ".",
+      "instances": 1,
+      "exec_mode": "fork",
+      "detached": true,
+      "listen_timeout": 30000,
+      "node_args": "--max-old-space-size=512 --max-semi-space-size=16",
+      "autorestart": true,
+      "restart_delay": 1000,
+      "max_memory_restart": "500M"
+    },
+    {
+      "name": "xAPI",
+      "script": "/app/lrs-xapi-service/xapi/dist/server.js",
+      "cwd": ".",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "wait_ready": true,
+      "listen_timeout": 30000,
+      "node_args": "--max-old-space-size=512 --max-semi-space-size=16",
+      "autorestart": true,
+      "restart_delay": 1000,
+      "max_memory_restart": "500M"
+    }
+  ]
+}
