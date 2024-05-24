@@ -106,7 +106,8 @@ RUN npm install -g pm2 \
     && ln -s /app/lrsctl.sh /usr/local/bin/lrsctl \
     && ln -s /app/.env /app/lrs-core/.env \
     && ln -s /app/.env /app/lrs-xapi-service/.env \
-    && rm /etc/nginx/http.d/default.conf
+    && rm /etc/nginx/http.d/default.conf \
+    && mkdir -p /app/storage/tmp
 
 EXPOSE 80
 ENTRYPOINT [ "lrsctl", "start" ]
