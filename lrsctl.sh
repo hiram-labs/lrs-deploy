@@ -12,6 +12,7 @@ Commands:
     start         Start all lrs services and nginx.
     stop          Stop all lrs services and nginx.
     create:admin  Create default admin account.
+    requeue:stmt  Rerun stmt info extraction for all.
 EOF
 exit 1
 }
@@ -62,12 +63,22 @@ create_admin()
   )
 }
 
+
+requeue_stmt()
+{
+  cd /app || exit 1
+  node cli/dist/server requeueStatements
+}
+
+
 if [ "$1" = "stop" ]; then
   stop
 elif [ "$1" = "start" ]; then
   start
 elif [ "$1" = "create:admin" ]; then
   create_admin
+elif [ "$1" = "requeue:stmt" ]; then
+  requeue_stmt
 else
   show_help
 fi
