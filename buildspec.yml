@@ -5,7 +5,7 @@ phases:
     commands:
       - echo --- LOG IN TO AMAZON ECR ---
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-      - aws s3 cp $MONGODB_CERT_S3_URI /tmp
+      - aws s3 cp $CERT_S3_URI /tmp
       - aws s3 cp $DOT_ENV_S3_URI /tmp
   build:
     commands:
