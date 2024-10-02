@@ -25,7 +25,7 @@ COPY nginx.conf /tmp/nginx.conf
 
 WORKDIR /opt
 
-RUN git clone --depth 1 --branch main https://github.com/hiram-labs/lrs-core.git \
+RUN git clone --depth 1 --branch xrtemis https://github.com/hiram-labs/lrs-core.git \
     && cd lrs-core \
     && cp /tmp/.env .\
     && npm ci \
@@ -33,7 +33,7 @@ RUN git clone --depth 1 --branch main https://github.com/hiram-labs/lrs-core.git
     && rm -rf ./node_modules/.cache \
     && cd $OLDPWD
 
-RUN git clone --depth 1 --branch main https://github.com/hiram-labs/lrs-xapi-service.git \
+RUN git clone --depth 1 --branch xrtemis https://github.com/hiram-labs/lrs-xapi-service.git \
     && cd lrs-xapi-service \
     && cp /tmp/.env .\
     && npm ci \

@@ -12,7 +12,7 @@ phases:
       - echo BUILD STARTED ON `date`
 
       - echo --- CLONE THE LRS DEPLOYMENT REPO ---
-      - git clone --depth 1 --branch main https://github.com/hiram-labs/lrs-deploy.git
+      - git clone --depth 1 --branch xrtemis https://github.com/hiram-labs/lrs-deploy.git
       - cd lrs-deploy
 
       - echo --- COPY CERTS FROM S3 ---
